@@ -1,4 +1,4 @@
-At/ADP that/DET time/NOUN highway/NOUN engineers/NOUN traveled/VERB rough/ADJ and/CONJ dirty/ADJ roads/NOUN to/PRT accomplish/VERB their/DET duties/NOUN ./.
+At/ADP that/DET time/NOUN highway/NOUN engineers/NOUN travelled/VERB rough/ADJ and/CONJ dirty/ADJ roads/NOUN to/PRT accomplish/VERB their/DET duties/NOUN ./.
 Using/VERB privately-owned/ADJ vehicles/NOUN was/VERB a/DET personal/ADJ hardship/NOUN for/ADP such/ADJ employees/NOUN ,/. and/CONJ the/DET matter/NOUN of/ADP providing/VERB state/NOUN transportation/NOUN was/VERB felt/VERB perfectly/ADV justifiable/ADJ ./.
 Once/ADP the/DET principle/NOUN was/VERB established/VERB ,/. the/DET increase/NOUN in/ADP state-owned/ADJ vehicles/NOUN came/VERB rapidly/ADV ./.
 And/CONJ reasons/NOUN other/ADJ than/ADP employee/NOUN need/NOUN contributed/VERB to/ADP the/DET growth/NOUN ./.

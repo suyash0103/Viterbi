@@ -14,8 +14,8 @@
       <file leaf-file-name="viterbi-pos.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/viterbi-pos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+            <state relative-caret-position="276">
+              <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -202,8 +202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/viterbi-pos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+        <state relative-caret-position="276">
+          <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>

@@ -39,3 +39,14 @@ for i in range(training_data_size - 1):
     transition_prob[outer_key][inner_key] = transition_prob[outer_key].get(inner_key, 0)
     # Increment count
     transition_prob[outer_key][inner_key] += 1
+
+    # For Dictionary of Emission Probability
+    outer_key = train_words[i]
+    inner_key = train_words[i + 1]
+    # If outer_key exists as a key, return its value, or else return an empty dictionary
+    emission_prob[outer_key] = emission_prob.get(outer_key, {})
+    # If inner_key exists for this particular outer_key, return value of inner dictionary, or else return 0
+    emission_prob[outer_key][inner_key] = emission_prob[outer_key].get(inner_key, 0)
+    # Increment count
+    emission_prob[outer_key][inner_key] += 1
+

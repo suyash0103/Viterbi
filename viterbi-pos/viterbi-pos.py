@@ -21,6 +21,7 @@ for i in range(0, training_data_size):
     train_tags[i] = word_tag[1]
     # print (i, train_words[i], train_tags[i])
 
+
 # TRANSITION PRABABILITY
 transition_prob = {}
 

@@ -56,3 +56,15 @@ for i in range(training_data_size - 1):
 transition_prob['.'] = transition_prob.get('.', {})
 transition_prob['.'][train_tags[0]] = transition_prob['.'].get(train_tags[0], 0)
 transition_prob['.'][train_tags[0]] += 1
+
+""" Considering last word and tag of document, since it is not included in the above for loop """
+index = training_data_size - 1
+outer_key = train_words[index]
+inner_key = train_tags[index]
+# If outer_key exists as a key, return its value, or else return an empty dictionary
+emission_prob[outer_key] = emission_prob.get(outer_key, {})
+# If inner_key exists for this particular outer_key, return value of inner dictionary, or else return 0
+emission_prob[outer_key][inner_key] = emission_prob[outer_key].get(inner_key, 0)
+# Increment count
+emission_prob[outer_key][inner_key] += 1
+

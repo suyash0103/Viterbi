@@ -68,7 +68,10 @@ emission_prob[outer_key][inner_key] = emission_prob[outer_key].get(inner_key, 0)
 # Increment count
 emission_prob[outer_key][inner_key] += 1
 
-""" Calculating Probabilities """
+# Dictionary to store frequency of each Tag
+tag_frequency = {}
+
+""" Calculating Transition Probability """
 # val = transition_prob['VERB']
 # print (val)
 # print (sum(val.values()))
@@ -87,6 +90,8 @@ for out_key in transition_prob:
 
     # Calculate c(VERB)
     divisor = sum(out_value.values())
+    tag_frequency[out_key] = tag_frequency.get(out_key, 0)
+    tag_frequency[out_key] = divisor
 
     for in_key in out_value:
         # Evaluate c(VERB NOUN) / c(VERB)
@@ -97,3 +102,5 @@ for out_key in transition_prob:
     transition_prob[out_key] = out_value
 
 # print (transition_prob['VERB'])
+
+

@@ -102,5 +102,22 @@ for out_key in transition_prob:
     transition_prob[out_key] = out_value
 
 # print (transition_prob['VERB'])
+# print(tag_frequency)
 
+""" Calculating Emission Probability """
+# P(WORD | VERB) = c(VERB WORD) / c(VERB) -> Transition Probability
+for out_key in emission_prob:
+    out_value = emission_prob[out_key]
 
+    for in_key in out_value:
+        # print(in_key)
+        # print(out_value[in_key])
+        # print(tag_frequency[in_key])
+        out_value[in_key] /= tag_frequency[in_key]
+        # print(out_value[in_key])
+
+    out_value = out_value.items()
+    out_value = sorted(out_value, key=lambda x: x[0])
+    emission_prob[out_key] = out_value
+
+# print (emission_prob)

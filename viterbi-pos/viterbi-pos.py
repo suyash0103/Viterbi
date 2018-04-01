@@ -6,7 +6,7 @@ from operator import itemgetter
 training_file = open("wsj_training.txt", "r")
 training_str = training_file.read()
 training_data = training_str.split()
-print (training_data)
+# print (training_data)
 
 train_words = ['']
 train_tags = ['']
@@ -50,3 +50,9 @@ for i in range(training_data_size - 1):
     # Increment count
     emission_prob[outer_key][inner_key] += 1
 
+# print (transition_prob['VERB'])
+
+""" First word of sentence comes after a '.' But first tag of document has no prior '.' Following code considers that """
+transition_prob['.'] = transition_prob.get('.', {})
+transition_prob['.'][train_tags[0]] = transition_prob['.'].get(train_tags[0], 0)
+transition_prob['.'][train_tags[0]] += 1

@@ -68,3 +68,32 @@ emission_prob[outer_key][inner_key] = emission_prob[outer_key].get(inner_key, 0)
 # Increment count
 emission_prob[outer_key][inner_key] += 1
 
+""" Calculating Probabilities """
+# val = transition_prob['VERB']
+# print (val)
+# print (sum(val.values()))
+# divisor = sum(val.values())
+# print (val.items())
+# for in_key in val:
+#     # Evaluate c(VERB NOUN) / c(VERB)
+#     val[in_key] /= divisor
+# val = sorted(val, key=lambda x : x[0])
+# print (val)
+
+# print (transition_prob['VERB'])
+# P(NOUN | VERB) = c(VERB NOUN) / c(VERB) -> Transition Probability
+for out_key in transition_prob:
+    out_value = transition_prob[out_key]
+
+    # Calculate c(VERB)
+    divisor = sum(out_value.values())
+
+    for in_key in out_value:
+        # Evaluate c(VERB NOUN) / c(VERB)
+        out_value[in_key] /= divisor
+
+    out_value = out_value.items()
+    out_value = sorted(out_value, key = lambda x : x[0])
+    transition_prob[out_key] = out_value
+
+# print (transition_prob['VERB'])

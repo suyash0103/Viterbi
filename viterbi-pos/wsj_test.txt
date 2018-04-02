@@ -1,1 +1,1 @@
-I/ like/ chocolate/ and/ you/ ./
+I/PRON like/VERB chocolate/NOUN and/CONJ you/PRON ./.

@@ -131,8 +131,6 @@ testing_file = open("wsj_test.txt", "r")
 testing_str = testing_file.read()
 testing_data = testing_str.split()
 
-print (testing_data)
-
 test_words = ['']
 test_tags = ['']
 final_tags = ['']
@@ -153,12 +151,16 @@ for i in range(testing_data_size):
     if i == 0:
         transition_prob_list =  transition_prob['.']
     else:
-        transition_prob_list = transition_prob['NOUN']
+        try:
+            transition_prob_list = transition_prob[final_tags[i - 1]]
+        except:
+            transition_prob_list = []
 
     emission_prob_list = emission_prob.get(test_words[i], '')
 
+    # If testing data word is not found, tag it as NOUN
     if emission_prob_list == '':
-        final_tags[i] = 'NO'
+        final_tags[i] = 'NOUN'
 
     else:
         probability = 0
@@ -185,7 +187,6 @@ for i in range(testing_data_size):
     if final_tags[i] == '':
         final_tags[i] = max(emission_prob_list, key = itemgetter(1))[0]
 
-    print (final_tags[i])
     if final_tags[i] != test_tags[i]:
         error += 1
 

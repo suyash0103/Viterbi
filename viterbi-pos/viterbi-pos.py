@@ -131,21 +131,78 @@ testing_file = open("wsj_test.txt", "r")
 testing_str = testing_file.read()
 testing_data = testing_str.split()
 
-# print (testing_data)
+print (testing_data)
 
 test_words = ['']
 test_tags = ['']
 final_tags = ['']
 
 testing_data_size = len(testing_data)
+
 test_words *= testing_data_size
 test_tags *= testing_data_size
 final_tags *= testing_data_size
+
+error = 0
+
+print (testing_data_size)
+# print (test_words)
 
 for i in range(testing_data_size):
     temp = testing_data[i].split("/")
     test_words = temp[0]
     test_tags = temp[1]
 
+for i in range(testing_data_size):
+    # temp = testing_data[i].split("/")
+    # test_words = temp[0]
+    # test_tags = temp[1]
+
     if i == 0:
-        inner_dict_list =  transition_prob['.']
+        transition_prob_list =  transition_prob['.']
+    else:
+        transition_prob_list = transition_prob['NOUN']
+
+    print (i)
+    print (test_words[i])
+    # emission_prob_list = emission_prob.get(test_words[i], '')
+
+    """
+    if emission_prob_list == '':
+        final_tags[i] = 'NOUN'
+
+    else:
+        probability = 0
+        max_probability = 0
+        count_transition_prob = 0
+        count_emission_prob = 0
+
+        while count_emission_prob < len(emission_prob_list) and count_transition_prob < len(transition_prob_list):
+            transition_tag = transition_prob_list[count_transition_prob][0]
+            emission_tag = emission_prob_list[count_emission_prob][0]
+
+            if transition_tag < emission_tag:
+                count_transition_prob += 1
+            elif emission_tag < transition_tag:
+                count_emission_prob += 1
+            else:
+                probability = transition_prob_list[count_transition_prob][1] * emission_prob_list[count_emission_prob][1]
+                if max_probability < probability:
+                    max_probability = probability
+                    final_tags[i] = transition_tag
+                count_transition_prob += 1
+                count_emission_prob += 1
+
+    if final_tags[i] == '':
+        final_tags[i] = max(emission_prob_list, key = itemgetter(1))[0]
+
+    print (final_tags[i])
+    # if final_tags[i] != test_tags[i]:
+    #     error += 1
+    """
+
+# print ("Fraction of errors (Viterbi) : ",(error/len(test_tags)))
+#
+# print ("Tags suggested by Viterbi Algorithm : ", final_tags)
+#
+# print ("Correct tags : ", test_tags)

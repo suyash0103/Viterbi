@@ -97,6 +97,7 @@ for out_key in transition_prob:
         # Evaluate c(VERB NOUN) / c(VERB)
         out_value[in_key] /= divisor
 
+    # Outer dictionary with key as sorted list
     out_value = out_value.items()
     out_value = sorted(out_value, key = lambda x : x[0])
     transition_prob[out_key] = out_value
@@ -105,7 +106,7 @@ for out_key in transition_prob:
 # print(tag_frequency)
 
 """ Calculating Emission Probability """
-# P(WORD | VERB) = c(VERB WORD) / c(VERB) -> Transition Probability
+# P(WORD | VERB) = c(VERB WORD) / c(VERB) -> Emission Probability
 for out_key in emission_prob:
     out_value = emission_prob[out_key]
 
@@ -113,11 +114,21 @@ for out_key in emission_prob:
         # print(in_key)
         # print(out_value[in_key])
         # print(tag_frequency[in_key])
+        # Evaluate c(VERB WORD) / c(VERB)
         out_value[in_key] /= tag_frequency[in_key]
         # print(out_value[in_key])
 
+    # Outer dictionary with key as sorted list
     out_value = out_value.items()
     out_value = sorted(out_value, key=lambda x: x[0])
     emission_prob[out_key] = out_value
 
 # print (emission_prob)
+
+""" TESTING """
+
+testing_file = open("wsj_test.txt", "r")
+testing_str = testing_file.read()
+testing_data = testing_str.split()
+
+print (testing_data)

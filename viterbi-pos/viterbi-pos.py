@@ -145,31 +145,20 @@ final_tags *= testing_data_size
 
 error = 0
 
-print (testing_data_size)
-# print (test_words)
-
 for i in range(testing_data_size):
     temp = testing_data[i].split("/")
-    test_words = temp[0]
-    test_tags = temp[1]
-
-for i in range(testing_data_size):
-    # temp = testing_data[i].split("/")
-    # test_words = temp[0]
-    # test_tags = temp[1]
+    test_words[i] = temp[0]
+    test_tags[i] = temp[1]
 
     if i == 0:
         transition_prob_list =  transition_prob['.']
     else:
         transition_prob_list = transition_prob['NOUN']
 
-    print (i)
-    print (test_words[i])
-    # emission_prob_list = emission_prob.get(test_words[i], '')
+    emission_prob_list = emission_prob.get(test_words[i], '')
 
-    """
     if emission_prob_list == '':
-        final_tags[i] = 'NOUN'
+        final_tags[i] = 'NO'
 
     else:
         probability = 0
@@ -197,12 +186,11 @@ for i in range(testing_data_size):
         final_tags[i] = max(emission_prob_list, key = itemgetter(1))[0]
 
     print (final_tags[i])
-    # if final_tags[i] != test_tags[i]:
-    #     error += 1
-    """
+    if final_tags[i] != test_tags[i]:
+        error += 1
 
-# print ("Fraction of errors (Viterbi) : ",(error/len(test_tags)))
-#
-# print ("Tags suggested by Viterbi Algorithm : ", final_tags)
-#
-# print ("Correct tags : ", test_tags)
+print ("Fraction of errors (Viterbi) : ",(error/len(test_tags)))
+
+print ("Tags suggested by Viterbi Algorithm : ", final_tags)
+
+print ("Correct tags : ", test_tags)

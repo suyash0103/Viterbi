@@ -131,4 +131,21 @@ testing_file = open("wsj_test.txt", "r")
 testing_str = testing_file.read()
 testing_data = testing_str.split()
 
-print (testing_data)
+# print (testing_data)
+
+test_words = ['']
+test_tags = ['']
+final_tags = ['']
+
+testing_data_size = len(testing_data)
+test_words *= testing_data_size
+test_tags *= testing_data_size
+final_tags *= testing_data_size
+
+for i in range(testing_data_size):
+    temp = testing_data[i].split("/")
+    test_words = temp[0]
+    test_tags = temp[1]
+
+    if i == 0:
+        inner_dict_list =  transition_prob['.']
